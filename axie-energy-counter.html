@@ -1,0 +1,89 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="José Souza (https://www.linkedin.com/in/jos%C3%A9-carlos-souza-96351b38)">
+    <title>Energy Counter - Axie Infinity</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="/docs/4.6/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+    <link rel="icon" href="/docs/4.6/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/docs/4.6/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="manifest" href="/docs/4.6/assets/img/favicons/manifest.json">
+    <link rel="mask-icon" href="/docs/4.6/assets/img/favicons/safari-pinned-tab.svg" color="#563d7c">
+    <link rel="icon" href="/docs/4.6/assets/img/favicons/favicon.ico">
+    <meta name="msapplication-config" content="/docs/4.6/assets/img/favicons/browserconfig.xml">
+    <meta name="theme-color" content="#563d7c">
+
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+
+
+    <!-- Custom styles for this template -->
+    <link href="index.css" rel="stylesheet">
+</head>
+
+<script>
+    function resetCounter() {
+        document.querySelector('.counter').textContent = "3";
+    }
+    function changeCounter(value) {
+        el = document.querySelector('.counter');
+        let counter = parseInt(el.textContent);
+        counter = counter + value;
+
+        if (counter > 6) {
+            counter = 6;
+        }
+
+        if (counter < 0) {
+            counter = 0;
+        }
+
+        el.textContent = counter;
+    }
+</script>
+
+<body class="text-center">
+    <form class="form-energy">
+        <p class="mb-1 text-muted">Developed by José Souza © 2021</p>
+        <div class="axie-card">
+            <img class="mb-4" src="energy.png" alt="" width="300" height="400">
+            <h5 class="axie-title">Energy Counter</h5>
+            <p class="counter">3</p>
+            <div class="btn-add-container">
+                <button type="button" class="btn btn-success" onclick="changeCounter(1)">+1</button>
+                <button type="button" class="btn btn-success" onclick="changeCounter(2)">+2</button>
+            </div>
+            <div class="btn-remove-container">
+                <button type="button" class="btn btn-danger" onclick="changeCounter(-1)">-1</button>
+                <button type="button" class="btn btn-danger" onclick="changeCounter(-2)">-2</button>
+            </div>
+    </form>
+    <div class="btn-actions text-center">
+        <button type="button" class="btn btn-dark" onclick="resetCounter()">New Game</button>
+    </div>
+</body>
+<evlist></evlist>
+
+</html>
