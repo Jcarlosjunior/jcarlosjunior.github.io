@@ -45,10 +45,10 @@
 
 <script>
     function resetCounter() {
-        document.querySelector('.counter').textContent = "3";
+        document.querySelector('#counter').textContent = "3";
     }
     function changeCounter(value) {
-        el = document.querySelector('.counter');
+        el = document.querySelector('#counter');
         let counter = parseInt(el.textContent);
         counter = counter + value;
 
@@ -70,7 +70,7 @@
         <div class="axie-card">
             <img class="mb-4" src="energy.png" alt="" width="300" height="400">
             <h5 class="axie-title">Energy Counter</h5>
-            <p class="counter">3</p>
+            <p id="counter" class="counter">3</p>
             <div class="btn-add-container">
                 <button type="button" class="btn btn-success" onclick="changeCounter(1)">+1</button>
                 <button type="button" class="btn btn-success" onclick="changeCounter(2)">+2</button>
