@@ -4,8 +4,7 @@ function FindProxyForURL(url, host) {
 //        domains that cannot be publicly resolved here.
 
           if (isPlainHostName(host) ||
-//                (host == "host.example.com") ||
-                  shExpMatch(host, "*.youtube.com")) ||
+                  shExpMatch(host, "*.youtube.com") ||
                   shExpMatch(host, "*.googlevideo.com"))
                   return "DIRECT";
 
