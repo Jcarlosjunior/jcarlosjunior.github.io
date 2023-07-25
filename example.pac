@@ -1,26 +1,34 @@
-function FindProxyForURL(url, host) {
-//        Specific destinations can be bypassed here. Example lines for host, and
-//        domain provided. Replace with your specific information. Add internal
-//        domains that cannot be publicly resolved here.
 
-          if (isPlainHostName(host) ||
-                  shExpMatch(host, "*.youtube.com") ||
-                  shExpMatch(host, "*.googlevideo.com"))
-                  return "DIRECT";
+	function FindProxyForURL(url, host) {
+		if (isPlainHostName(host) || shExpMatch(host, "*.youtube.*") || shExpMatch(host, "*.googlevideo.com") || shExpMatch(host, "video.google.com") || shExpMatch(host, "video.l.google.com"))
+    		return "DIRECT";
 
+  		if (url.substring(0, 5) != "http:" && url.substring(0, 6) != "https:")
+    		return "DIRECT";
 
+		let matchUrls = ["redash-demo.broknus.com","*.dlptest.com","excel.officeapps.live.com","*.hubspot123.com"];
+		let bypassUrls = [];
 
-//        ====== Section III ==== Bypasses for other protocols ============================
+		if (bypassUrls.length > 0 && isInList(host, bypassUrls)) {
+			return "DIRECT";
+		}
 
-//        Send everything other than HTTP and HTTPS direct
-//        Uncomment middle line if FTP over HTTP is enabled
+		if (matchUrls.length > 0 && isInList(host, matchUrls)) {
+			return "PROXY qa-shield.broknus.com:44509";
+		} 
 
-          if ((url.substring(0,5) != "http:") &&
-                 (url.substring(0,6) != "https:"))
-                 return "DIRECT";
+		return "DIRECT";
+	}
 
+	function isInList(url, list) {
+		for (var i = 0; i < list.length; i++) {
+			if (shExpMatch(url, list[i])) {
+				alert(url + "            " + list[i] + " true");
+				return true;
+			}
 
-//        ====== Section IV ==== DEFAULT FORWARDING ================================
-          
-          return "PROXY clikalia.nullafi.net:44509";
-}
+			alert(url + "            " + list[i] + " false");
+		}
+		return false;
+	}
+	
