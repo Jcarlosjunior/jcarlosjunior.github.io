@@ -6,7 +6,7 @@
   		if (url.substring(0, 5) != "http:" && url.substring(0, 6) != "https:")
     		return "DIRECT";
 
-		let matchUrls = ["redash-demo.broknus.com","dlptest.com","excel.officeapps.live.com","*.hubspot123.com"];
+		let matchUrls = ["redash-demo.broknus.com","dlptest.com","excel.officeapps.live.com","hubspot123.com"];
 		let bypassUrls = [];
 
 		if (bypassUrls.length > 0 && isInList(host, bypassUrls)) {
