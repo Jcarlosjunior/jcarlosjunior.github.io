@@ -6,7 +6,7 @@
   		if (url.substring(0, 5) != "http:" && url.substring(0, 6) != "https:")
     		return "DIRECT";
 
-		let matchUrls = ["redash-demo.broknus.com","dlptest.com","excel.officeapps.live.com","hubspot123.com"];
+		let matchUrls = ["redash-demo.broknus.com","calendly.com","*.calendly.com","6sc.co","*.6sc.co","*.hubspot.com", "demo3.nullafi.net"];
 		let bypassUrls = [];
 
 		if (bypassUrls.length > 0 && isInList(host, bypassUrls)) {
@@ -14,7 +14,7 @@
 		}
 
 		if (matchUrls.length > 0 && isInList(host, matchUrls)) {
-			return "PROXY qa-shield.broknus.com:44509";
+			return "PROXY demo3.nullafi.net:44509";
 		} 
 
 		return "DIRECT";
